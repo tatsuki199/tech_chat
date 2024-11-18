@@ -1,0 +1,11 @@
+<%= link_to "投稿ページ", "/posts/new" %>
+<% @posts.each do |post| %>
+  <div class="text_box">
+    <div class="title">タイトル：<%= post.title%> 
+    </div>
+    <div class="question">内容：<%= post.question %>
+    </div>
+    <div class="name">投稿者名:<%= post.name %>
+    </div>
+  </div>
+<% end %>
