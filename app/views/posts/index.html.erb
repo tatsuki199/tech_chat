@@ -1,4 +1,7 @@
-<%= link_to "投稿ページ", "/posts/new" %>
+<header>
+  <div class="hed_left">TechChat</div>
+  <div class="hed_right"> <%= link_to "投稿ページ", "/posts/new" %> </div>
+</header>
 <% @posts.each do |post| %>
   <div class="text_box">
     <div class="title">タイトル：<%= post.title%> 
