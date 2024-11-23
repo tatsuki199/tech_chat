@@ -1,14 +1,21 @@
-<header>
-  <div class="hed_left">TechChat</div>
-  <div class="hed_right"> <%= link_to "投稿ページ", "/posts/new" %> </div>
-</header>
-<% @posts.each do |post| %>
-  <div class="text_box">
-    <div class="title">タイトル：<%= post.title%> 
+
+<div class="index-main">
+  <% @posts.each do |post| %>
+    <div class="text_box">
+      <div class= "comments">
+        <div class="comment_count">0</div>
+        <div class="comment">comments</div>
+      </div>
+      <div class="post">
+        <div class="post_hedder">
+          <div class="title"><%= post.title%> 
+          </div>
+          <div class="name"><%= post.name %>
+          </div>
+        </div>
+        <div class="question"><%= post.question %>
+        </div>
+      </div>
     </div>
-    <div class="question">内容：<%= post.question %>
-    </div>
-    <div class="name">投稿者名:<%= post.name %>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
