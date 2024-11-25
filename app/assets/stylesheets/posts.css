@@ -27,15 +27,16 @@ header{
   align-items: center;
 }
 
-.hed_left{
+.hed_left a{
   font-family: 'Roboto', sans-serif;
   font-size: 23px;
   letter-spacing: 1.8px;
   font-weight: 100;
   color: #ffffff;
+  text-decoration: none;
 }
 
-.hed_right{
+.hed_right a{
   height: 32px;
   width: 80px;
   text-align: center;

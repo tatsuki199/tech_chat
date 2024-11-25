@@ -9,10 +9,17 @@ class PostsController < ApplicationController
     Post.create(post_params)
     redirect_to '/'
   end
+  def show
+    @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments
+  end
 
   private
 
   def post_params
     params.require(:post).permit(:title, :question, :name)
   end
+
+  
 end

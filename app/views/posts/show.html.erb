@@ -1,0 +1,17 @@
+<div class="show">
+  <div class="show_title">
+    タイトル:<%= @post.title %>
+  </div>
+  <div class="show_question">
+    質問内容:<%= @post.question %>
+  </div>
+  <div class="show_name">
+    投稿者名:<%= @post.name%>
+  </div>
+</div>
+
+<%= form_with(model: [@post, @comment], local: true) do |form| %></br>
+  <%= form.text_field :answer %></br>
+  <%= form.text_area :name %></br>
+  <%= form.submit "Submit"%></br>
+<% end %>
