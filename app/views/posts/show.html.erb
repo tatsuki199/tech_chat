@@ -1,22 +1,51 @@
-<div class="show">
-  <div class="show_title">
-    タイトル:<%= @post.title %>
-  </div>
-  <div class="show_question">
-    質問内容:<%= @post.question %>
-  </div>
-  <div class="show_name">
-    投稿者名:<%= @post.name%>
+<div class="show-main">
+  <div class="show-contents">
+    <%# 質問内容の表示 %>
+    <div class="show-question">
+      <div class="show-question__title">
+        <%= @post.title %>
+      </div>
+      <div class="show-question__content">
+        <%= @post.question %>
+      </div>
+      <div class="show-question__name">
+        <%= @post.name %>
+      </div>
+    </div>
+
+    <%# 回答投稿フォームの表示 %>
+    <div class="show-answer-form">
+      <%= form_with(model: [@post, @comment], local: true) do |form| %>
+        <div class="show-answer-form__heading">
+          回答する
+        </div>
+        <div class="show-answer-form__content">
+          <%= form.text_area :answer, placeholder: "回答する", rows: "4" %>
+        </div>
+        <div class="show-answer-form__name">
+          <%= form.text_field :name, placeholder: "投稿者名" %>
+        </div>
+        <div class="show-answer-form__submit">
+          <%= form.submit "POST" %>
+        </div>
+        <% end %>    
+      </div>
+
+      <%# 回答一覧の表示 %>
+      <div class="show-answers">
+        <div class="answers-heading">
+          いままでの回答：
+        </div>
+        <% @comments.each do |answer| %>
+          <div class="answer-content">
+            <div class="answer-content__text">
+              <%= answer.answer %>
+            </div>
+            <div class="answer-content__name">
+              <%= answer.name %>
+            </div>
+          </div>
+        <% end %>
+      </div>  
   </div>
 </div>
-
-<%= form_with(model: [@post, @comment], local: true) do |form| %></br>
-  <%= form.text_area :answer, placeholder: "回答する" %></br>
-  <%= form.text_field :name, placeholder: "ユーザー名" %></br>
-  <%= form.submit "POST"%></br>
-<% end %>
-
-<% @comments.each do |comment| %>
-  回答:<%= comment.answer %><br>
-  投稿者名: <%= comment.name %><br><br>
-<% end %>
